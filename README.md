@@ -9,41 +9,57 @@ Proyek kolaboratif mata kuliah Kecerdasan Buatan yang berfokus pada implementasi
 
 ---
 
-## 1. Latar Belakang & Deskripsi
-Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang membantu menghitung dan menentukan jalur pengiriman optimal dari titik awal menuju lokasi tujuan. Pengguna dapat memasukkan parameter hambatan atau blokade rute, dan sistem akan memproses jalur alternatif serta memberikan diagnosis status keselamatan pengiriman secara tekstual di terminal.
+## 1. Deskripsi Proyek
+Aplikasi berbasis konsol (*terminal*) ini dirancang untuk menyelesaikan dua permasalahan utama dalam sistem logistik pengiriman barang:
+1. **Sistem Pakar:** Merekomendasikan jenis kendaraan (motor, mobil kecil, mobil boks, truk, atau mobil berpendingin), bahan kemasan tambahan (seperti *bubble wrap*), serta jenis layanan (ekspres atau reguler) berdasarkan fakta spesifikasi barang.
+2. **Search Algorithm:** Menentukan rute pencarian terpendek/teroptimal dari lokasi asal menuju lokasi tujuan pengiriman.
 
-## 2. Tujuan Pengerjaan
-* Mengimplementasikan algoritma pencarian (*search*) pada studi kasus nyata.
-* Membandingkan performa antara metode *uninformed* (BFS, Dijkstra) dan *informed* (A*).
-* Menerapkan sistem pakar berbasis aturan (*rule-based*) untuk menafsirkan hasil keluaran pencarian rute.
+---
 
-## 3. Spesifikasi Teknologi
+## 2. Tujuan
+* Mengimplementasikan sistem pakar berbasis aturan (*rule-based*) menggunakan teknik *Forward Chaining*.
+* Menerapkan algoritma *Informed Search* (A* dan Greedy Best-First Search) pada model pencarian rute.
+* Menyediakan program yang interaktif, efisien, dan ringan dijalankan langsung melalui terminal/Command Prompt tanpa kebergantungan pada library grafis (*GUI*).
+
+---
+
+## 3. Spesifikasi Teknologi & Library
 * **Bahasa Pemrograman:** Python 3.x
-* **Pustaka Standar:** Menggunakan pustaka bawaan Python (seperti `heapq`, `collections`, dll.) tanpa memerlukan instalasi pustaka grafis tambahan.
-* **Core Algoritma:** BFS, Dijkstra, A*.
-* **Sistem Pakar:** Logika inferensi berbasis aturan kondisional (IF-THEN rules).
+* **Library / Pustaka:** Menggunakan pustaka standar bawaan Python (seperti `heapq` dan `collections`) tanpa membutuhkan instalasi library grafis external (`pygame` / `tkinter`).
 
+---
 
-## 4. Alur Kerja Sistem
-Berdasarkan implementasi kode program, alur kerja sistem pakar ini berjalan melalui tahapan berikut:
-1. **Inisialisasi Basis Aturan (*Rule Base*):** Sistem memuat daftar aturan (`R1` hingga `R8`) yang masing-masing berisi kondisi spesifik dan kesimpulan rekomendasi.
-2. **Pengumpulan Fakta (*Fact Gathering*):** Program meminta pengguna untuk memasukkan data awal melalui terminal, yang mencakup berat barang (`berat`), jarak pengiriman (`jarak`), serta tiga kondisi boolean (perlu suhu dingin, barang mudah pecah, dan pengiriman mendesak).
-3. **Proses Mesin Inferensi (*Forward Chaining*):** 
-   * Sistem mengevaluasi fakta-fakta yang dimasukkan pengguna terhadap kondisi pada setiap aturan secara berurutan.
-   * Jika kondisi suatu aturan bernilai benar (`True`), maka aturan tersebut aktif dan kesimpulannya dicatat.
-4. **Menampilkan Hasil Diagnosis:** Program mencetak daftar rekomendasi akhir ke layar terminal berdasarkan aturan-aturan yang aktif (mencakup jenis kendaraan, penanganan tambahan, dan jenis layanan).
+## 4. Cara Kerja Sistem
 
-### Perbandingan Karakteristik Algoritma
-| Algoritma | Kategori | Karakteristik Output | Tingkat Keoptimalan |
-| :--- | :--- | :--- | :--- |
-| **BFS** | Uninformed | Meminimalkan jumlah langkah lompatan | Optimal untuk jumlah langkah |
-| **Dijkstra** | Uninformed | Menemukan jarak metrik terpendek | Optimal |
-| **A\*** | Informed | Jarak terpendek berpandu fungsi heuristik | Optimal |
+### A. Sistem Pakar (`expert_system/expert_system.py`)
+Sistem berjalan menggunakan metode **Forward Chaining** mengevaluasi himpunan aturan `R1` hingga `R8`:
+1. **Input Fakta (`fakta`):** Pengguna menginputkan data kuantitatif dan kualitatif:
+   * `berat`: Berat barang dalam kg (float).
+   * `jarak`: Jarak pengiriman dalam km (float).
+   * `dingin`: Perlu suhu dingin? (y/n).
+   * `mudah_pecah`: Barang mudah pecah? (y/n).
+   * `mendesak`: Pengiriman mendesak? (y/n).
+2. **Evaluasi Aturan (*Rule Evaluation*):**
+   * **R1:** Jika `dingin` = True $\rightarrow$ Kendaraan: mobil berpendingin.
+   * **R2:** Jika `not dingin` dan `berat` > 50 kg $\rightarrow$ Kendaraan: truk.
+   * **R3:** Jika `not dingin` dan 10 kg < `berat` $\le$ 50 kg $\rightarrow$ Kendaraan: mobil boks.
+   * **R4:** Jika `not dingin`, `berat` $\le$ 10 kg, dan `jarak` $\le$ 15 km $\rightarrow$ Kendaraan: motor.
+   * **R5:** Jika `not dingin`, `berat` $\le$ 10 kg, dan `jarak` > 15 km $\rightarrow$ Kendaraan: mobil kecil.
+   * **R6:** Jika `mudah_pecah` = True $\rightarrow$ Tambahan: gunakan bubble wrap dan kardus berlapis.
+   * **R7:** Jika `mendesak` = True $\rightarrow$ Layanan: ekspres (sampai hari yang sama).
+   * **R8:** Jika `not mendesak` = True $\rightarrow$ Layanan: reguler (1-3 hari).
+3. **Inferensi & Output:** Mesin inferensi menelusuri aturan secara berurutan dan menampilkan seluruh kesimpulan yang kondisi (*lambda*)-nya bernilai `True`.
 
-## 5. Sudut Pandang Kecerdasan Buatan (AI Perspective)
-* **Search Module:** Berfungsi sebagai motor utama perhitungan jalur navigasi.
-* **Expert System Module:** Berfungsi mengevaluasi fakta hasil pencarian untuk menghasilkan rekomendasi keputusan.
-* Proyek ini murni dibangun menggunakan pendekatan algoritmik dan aturan logika, tanpa melibatkan *Machine Learning*.
+### B. Algoritma Pencarian Jalur (`search_algorithm/`)
+* **A\* Search (`astar.py`):** Menggabungkan jarak riil ($g(n)$) dan fungsi heuristik ($h(n)$) jarak garis lurus menuju target untuk menemukan rute paling optimal.
+* **Greedy Best-First Search (`greedy_best_first.py`):** Fokus mengevaluasi node berdasarkan nilai heuristik terdekat $h(n)$ ke titik tujuan.
+
+---
+
+## 5. Peran Kecerdasan Buatan (AI Perspective)
+* **Rule-Based Expert System:** Menerapkan rantai inferensi *forward chaining* untuk mengevaluasi parameter barang menjadi keputusan operasional.
+* **Search Algorithm:** Menerapkan fungsi heuristik pada pencarian rute terarah (*informed search*).
+* Proyek ini berbasis logika terprogram dan algoritma klasik, tidak mengimplementasikan *Machine Learning*.
 
 ## 6. Keterbatasan Sistem
 * Pemetaan jaringan menggunakan model simulasi statis di dalam sistem.
