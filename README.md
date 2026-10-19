@@ -51,9 +51,19 @@ Sistem berjalan menggunakan metode **Forward Chaining** mengevaluasi himpunan at
 3. **Inferensi & Output:** Mesin inferensi menelusuri aturan secara berurutan dan menampilkan seluruh kesimpulan yang kondisi (*lambda*)-nya bernilai `True`.
 
 ### B. Algoritma Pencarian Jalur (`search_algorithm/`)
-* **A\* Search (`astar.py`):** Menggabungkan jarak riil ($g(n)$) dan fungsi heuristik ($h(n)$) jarak garis lurus menuju target untuk menemukan rute paling optimal.
-* **Greedy Best-First Search (`greedy_best_first.py`):** Fokus mengevaluasi node berdasarkan nilai heuristik terdekat $h(n)$ ke titik tujuan.
+1. **A\* Search (`astar.py`):**
+   * Menggabungkan biaya jarak riil dari titik asal ($g$) dengan nilai fungsi heuristik jarak garis lurus Euclidean ($h$) menuju titik tujuan.
+   * **Implementasi Kode:** Menggunakan struktur antrian prioritas (*priority queue* dengan `heapq`) untuk memastikan efisiensi penelusuran.
+   * **Contoh Eksekusi Pengiriman:** Dari "Gudang" menuju "Perumahan", algoritma secara cerdas mengevaluasi rute optimal melalui titik-titik hub terdekat dengan total jarak akurat.
 
+2. **Greedy Best-First Search:**
+   * Fokus memperluas simpul (*node*) yang memiliki estimasi jarak heuristik terdekat dengan target tujuan tanpa mempertimbangkan akumulasi jarak yang telah ditempuh ($g$).
+
+### Perbandingan Karakteristik Algoritma
+| Algoritma | Kategori | Fokus Pencarian | Tingkat Keoptimalan |
+| :--- | :--- | :--- | :--- |
+| **A\*** | Informed | Biaya riil ($g$) + Heuristik jarak ($h$) | Optimal dan efisien menemukan jalur terpendek |
+| **Greedy Best-First** | Informed | Berdasarkan nilai heuristik terdekat ($h$) saja | Cepat, namun terkadang tidak menghasilkan jalur terpendek mutlak |
 ---
 
 ## 5. Peran Kecerdasan Buatan (AI Perspective)
