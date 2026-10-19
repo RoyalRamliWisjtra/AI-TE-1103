@@ -3,9 +3,9 @@
 Repository ini berisi tugas implementasi algoritma pencarian (Search Algorithm) berbasis Uninformed Search dan Informed Search.
 
 ## Anggota Kelompok
-- Royal
-- Dwi Zarfa
-- Abimanyu
+- Royal Ramli Wisjtra
+- Dwi Zarfa K
+- Abimanyu Aziz 
 
 ## Algoritma yang Digunakan
 1. **Uninformed Search**: Breadth-First Search (BFS)
