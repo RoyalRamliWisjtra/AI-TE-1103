@@ -69,4 +69,4 @@ cd AI-TE-1303
 pip install pygame --prefer-binary
 
 python search_algorithm/visualisasi_pathfinding.py    # Menjalankan Visualisasi Pathfinding
-python expert_system/sistem_pakar_navigasi.py        # Menjalankan Sistem Pakar
+python expert_system/expert_system.py        
