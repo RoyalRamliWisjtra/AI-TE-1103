@@ -63,3 +63,21 @@ cd AI-TE-1303
 python search_algorithm/astar.py
 python search_algorithm/greedy_best_first.py
 python expert_system/expert_system.py
+
+
+## 10. Struktur Folder
+```bash
+AI-TE-103/
+├── search_algorithm/     # algoritma pencarian
+│   ├── graph.py          # model gedung sebagai graf
+│   └── algorithms.py     # BFS, UCS, A*
+├── expert_system/        # sistem pakar berbasis aturan
+│   ├── rules.py          # basis aturan (R1-R8)
+│   └── engine.py         # mesin diagnosis
+├── app/gui.py            # antarmuka Tkinter
+├── data/gedung.json      # denah gedung
+├── tests/                # tes otomatis
+├── docs/GIT_GUIDE.md     # alur kerja Git kelompok
+├── main.py               # titik masuk program
+├── README.md
+└── requirements.txt
