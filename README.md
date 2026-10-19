@@ -3,7 +3,7 @@
 Proyek kolaboratif mata kuliah Kecerdasan Buatan yang berfokus pada implementasi Sistem Pakar berbasis aturan (*rule-based*) serta algoritma pencarian jalur (*pathfinding*) berbasis teks/konsol.
 
 ## 👥 Tim Pengembang
-* **Royal Ramli Wisjtra** (Manager / `main`)
+* **Royal Ramli Wisjtra** ( `main`)
 * **Dwi Zarfa K** (Dev 1 / `dev1`)
 * **Abimanyu Aziz** (Dev 2 / `dev2`)
 
