@@ -4,7 +4,7 @@ Repository ini berisi tugas implementasi algoritma pencarian (Search Algorithm) 
 
 ## Anggota Kelompok
 - Royal Ramli Wisjtra
-- Dwi Zarfa K
+- Dwi Zarfa Kurniawan
 - Abimanyu Aziz Prasetya Wientama
 
 ## Algoritma yang Digunakan
