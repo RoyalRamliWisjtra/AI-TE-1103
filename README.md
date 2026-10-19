@@ -59,12 +59,13 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 git clone [https://github.com/RoyalRamliwisjtra/AI-TE-1303.git](https://github.com/RoyalRamliwisjtra/AI-TE-1303.git)
 cd AI-TE-1303
 
-python search_algorithm/astar.py
-python search_algorithm/greedy_best_first.py
-python expert_system/expert_system.py
+- python search_algorithm/astar.py
+- python search_algorithm/greedy_best_first.py
+- python expert_system/expert_system.py
 
-## 9.AI-TE-1303
+## 9.Arsitektur direktori
 ```bash
+AI-TE-1303/
 ├── expert_system/        # Modul aturan sistem pakar
 │   └── expert_system.py
 ├── search_algorithm/     # Modul algoritma pencarian jalur
