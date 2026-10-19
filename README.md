@@ -68,5 +68,6 @@ git clone [https://github.com/RoyalRamliwisjtra/AI-TE-1303.git](https://github.c
 cd AI-TE-1303
 pip install pygame --prefer-binary
 
-python search_algorithm/visualisasi_pathfinding.py    # Menjalankan Visualisasi Pathfinding
+python search_algorithm/astar.py
+python search_algorithm/greedy_best_first.py
 python expert_system/expert_system.py        
