@@ -1,20 +1,16 @@
-# Kelompok AI-TE1303: Sistem Navigasi Rute Pengiriman Barang
+# Expert System - Rekomendasi Pengiriman Barang
 
-Repository ini berisi tugas implementasi algoritma pencarian (Search Algorithm) berbasis Uninformed Search dan Informed Search.
-
-## Anggota Kelompok
-- Royal Ramli Wisjtra
-- Dwi Zarfa Kurniawan
-- Abimanyu Aziz Prasetya Wientama
-
-## Algoritma yang Digunakan
-1. **Uninformed Search**: Breadth-First Search (BFS)
-2. **Informed Search**: Greedy Best-First Search (menggunakan fungsi heuristik)
+## Deskripsi
+Sistem pakar berbasis aturan (rule-based) yang merekomendasikan
+kendaraan dan layanan pengiriman dari berat, jarak, dan kondisi barang.
 
 ## Requirement / Library
-- Python 3.x (Hanya menggunakan pustaka standar Python: `heapq` dan `collections`)
+- Python 3.x
+- Tidak perlu library tambahan
 
-## How to Use / Running
-1. Clone repository ini:
-   ```bash
-   git clone https://github.com/RoyalRamliWisjtra/AI-TE-1303.git
+## How to Use
+Jalankan program, lalu jawab pertanyaan yang muncul. Aturan dapat
+diubah pada daftar `aturan` di `expert_system/expert_system.py`.
+
+## Running
+python expert_system/expert_system.py
