@@ -23,6 +23,7 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 * **Core Algoritma:** BFS, Dijkstra, A*.
 * **Sistem Pakar:** Logika inferensi berbasis aturan kondisional (IF-THEN rules).
 
+
 ## 4. Alur Kerja Sistem
 1. Pengguna menjalankan program melalui terminal dan memberikan input parameter awal.
 2. Sistem merepresentasikan jaringan peta dalam bentuk struktur data *graph* (node dan bobot edge).
@@ -50,12 +51,22 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 ## 7. Kebutuhan Sistem
 * Interpreter Python versi 3.x terinstal di komputer.
 
-## 8. Panduan Penggunaan
+## 8.AI-TE-1303/
+├── expert_system/        # Modul aturan sistem pakar
+│   └── expert_system.py
+├── search_algorithm/     # Modul algoritma pencarian jalur
+│   ├── astar.py
+│   └── greedy_best_first.py
+├── main.py               # Berkas utama aplikasi
+└── README.md             # Dokumentasi proyek
+
+## 9. Panduan Penggunaan
 1. Buka terminal atau Command Prompt pada direktori proyek.
 2. Jalankan skrip program yang diinginkan.
 3. Ikuti instruksi interaktif yang muncul di layar terminal untuk memasukkan data atau pilihan parameter.
 
-## 9. Instruksi Eksekusi Program
+
+## 10. Instruksi Eksekusi Program
 ```bash
 git clone [https://github.com/RoyalRamliwisjtra/AI-TE-1303.git](https://github.com/RoyalRamliwisjtra/AI-TE-1303.git)
 cd AI-TE-1303
@@ -65,19 +76,6 @@ python search_algorithm/greedy_best_first.py
 python expert_system/expert_system.py
 
 
-## 10. Struktur Folder
-```bash
-AI-TE-103/
-├── search_algorithm/     # algoritma pencarian
-│   ├── graph.py          # model gedung sebagai graf
-│   └── algorithms.py     # BFS, UCS, A*
-├── expert_system/        # sistem pakar berbasis aturan
-│   ├── rules.py          # basis aturan (R1-R8)
-│   └── engine.py         # mesin diagnosis
-├── app/gui.py            # antarmuka Tkinter
-├── data/gedung.json      # denah gedung
-├── tests/                # tes otomatis
-├── docs/GIT_GUIDE.md     # alur kerja Git kelompok
-├── main.py               # titik masuk program
-├── README.md
-└── requirements.txt
+
+
+
