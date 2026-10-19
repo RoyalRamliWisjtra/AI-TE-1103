@@ -51,7 +51,8 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 ## 7. Kebutuhan Sistem
 * Interpreter Python versi 3.x terinstal di komputer.
 
-## 8.AI-TE-1303/
+## 8.AI-TE-1303
+
 ├── expert_system/        # Modul aturan sistem pakar
 │   └── expert_system.py
 ├── search_algorithm/     # Modul algoritma pencarian jalur
