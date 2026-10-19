@@ -56,8 +56,8 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 
 ## 8. Instruksi Eksekusi Program
 
-git clone [https://github.com/RoyalRamliwisjtra/AI-TE-1303.git](https://github.com/RoyalRamliwisjtra/AI-TE-1303.git)
-cd AI-TE-1303
+- git clone [https://github.com/RoyalRamliwisjtra/AI-TE-1303.git](https://github.com/RoyalRamliwisjtra/AI-TE-1303.git)
+- cd AI-TE-1303
 
 - python search_algorithm/astar.py
 - python search_algorithm/greedy_best_first.py
