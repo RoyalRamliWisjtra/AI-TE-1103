@@ -1,0 +1,1 @@
+# Proyek ini hanya memakai pustaka standar Python 3.9+ (tidak ada dependensi eksternal).
