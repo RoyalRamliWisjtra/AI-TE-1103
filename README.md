@@ -1,20 +1,17 @@
-# Kelompok AI-TE1303: Sistem Navigasi Rute Pengiriman Barang
+# Search Algorithm - Rute Pengiriman Barang
 
-Repository ini berisi tugas implementasi algoritma pencarian (Search Algorithm) berbasis Uninformed Search dan Informed Search.
-
-## Anggota Kelompok
-- Royal Ramli Wisjtra
-- Dwi Zarfa Kurniawan
-- Abimanyu Aziz Prasetya Wientama
-
-## Algoritma yang Digunakan
-1. **Uninformed Search**: Breadth-First Search (BFS)
-2. **Informed Search**: Greedy Best-First Search (menggunakan fungsi heuristik)
+## Deskripsi
+Implementasi informed search (A* dan Greedy Best-First) untuk mencari
+rute dari gudang ke lokasi tujuan. Heuristik: jarak garis lurus.
 
 ## Requirement / Library
-- Python 3.x (Hanya menggunakan pustaka standar Python: `heapq` dan `collections`)
+- Python 3.x
+- Library bawaan saja (heapq, math)
 
-## How to Use / Running
-1. Clone repository ini:
-   ```bash
-   git clone https://github.com/RoyalRamliWisjtra/AI-TE-1303.git
+## How to Use
+Ubah data lokasi dan jalan di bagian atas file, lalu ubah titik
+awal dan tujuan di bagian __main__.
+
+## Running
+python search_algorithm/astar.py
+python search_algorithm/greedy_best_first.py
