@@ -1,36 +1,23 @@
-dev1-Dwi-Zarfa
-# Search Algorithm - Rute Pengiriman Barang
+# Kelompok AI-TE1303: Sistem Navigasi & Sistem Pakar
 
-## Deskripsi
-Implementasi informed search (A* dan Greedy Best-First) untuk mencari
-rute dari gudang ke lokasi tujuan. Heuristik: jarak garis lurus.
+Repository ini berisi tugas implementasi **Sistem Pakar** dan **Algoritma Pathfinding Visualization** (*A\*, Dijkstra, dan BFS*).
 
-## Requirement / Library
-- Python 3.x
-- Library bawaan saja (`heapq`, `math`)
+---
 
-## How to Use
-Ubah data `lokasi` dan `jalan` di bagian atas file, lalu ubah titik
-awal dan tujuan di bagian `__main__`.
+## Tangkapan Layar Program & Visualisasi:
 
-## Running
-python search_algorithm/astar.py
-python search_algorithm/greedy_best_first.py
-=======
-# Expert System - Rekomendasi Pengiriman Barang
+### 1. Sistem Pakar Rekomendasi Navigasi (`expert_system/`)
+```text
+C:\Users\Royal\AI-TE-1303> python expert_system/sistem_pakar_navigasi.py
+=== Sistem Pakar Rekomendasi Navigasi & Pengiriman ===
+Jawab dengan y (ya) atau n (no).
 
-## Deskripsi
-Sistem pakar berbasis aturan (rule-based) yang merekomendasikan
-kendaraan dan layanan pengiriman dari berat, jarak, dan kondisi barang.
+Apakah jarak pengiriman tergolong jauh (> 10 km)? (y/n): y
+Apakah pengiriman membutuhkan waktu sangat cepat (prioritas tinggi)? (y/n): n
+Apakah rute memiliki banyak kemacetan / hambatan? (y/n): y
+Apakah muatan paket berukuran besar / berat? (y/n): y
+Apakah area tujuan berada di dalam gang / jalur sempit? (y/n): n
 
-## Requirement / Library
-- Python 3.x
-- Tidak perlu library tambahan
-
-## How to Use
-Jalankan program, lalu jawab pertanyaan yang muncul. Aturan dapat
-diubah pada daftar `aturan` di `expert_system/expert_system.py`.
-
-## Running
-python expert_system/expert_system.py
-main
+--- Rekomendasi Navigasi ---
+- Mobil Box / Truk Pengiriman - Cocok untuk jarak jauh dan kapasitas besar.
+- Rute Navigasi A* Search - Menghindari kemacetan berbasis nilai heuristik.
