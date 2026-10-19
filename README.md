@@ -14,4 +14,5 @@ awal dan tujuan di bagian `__main__`.
 
 ## Running
 python search_algorithm/astar.py
+
 python search_algorithm/greedy_best_first.py
