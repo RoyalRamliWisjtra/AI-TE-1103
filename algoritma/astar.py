@@ -1,7 +1,6 @@
 import heapq
 import math
 
-# Koordinat (x, y) dalam km, dipakai untuk heuristik
 lokasi = {
     "Gudang":   (0, 0),
     "Hub A":    (4, 1),
@@ -11,7 +10,6 @@ lokasi = {
     "Perumahan": (11, 5),
 }
 
-# Jalan dua arah beserta jarak (km)
 jalan = {
     "Gudang":    {"Hub A": 4.5, "Hub B": 6.0},
     "Hub A":     {"Gudang": 4.5, "Pasar": 4.5, "Kampus": 6.5},
