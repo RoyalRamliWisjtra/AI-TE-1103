@@ -48,17 +48,13 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 * Seluruh input hambatan bersifat manual dari pengguna (*user input*).
 * Faktor eksternal seperti cuaca riil atau dinamika lalu lintas nyata tidak diperhitungkan.
 
-## 7. Kebutuhan Sistem
-* Interpreter Python versi 3.x terinstal di komputer.
-
-
-## 8. Panduan Penggunaan
+## 7. Panduan Penggunaan
 1. Buka terminal atau Command Prompt pada direktori proyek.
 2. Jalankan skrip program yang diinginkan.
 3. Ikuti instruksi interaktif yang muncul di layar terminal untuk memasukkan data atau pilihan parameter.
 
 
-## 9. Instruksi Eksekusi Program
+## 8. Instruksi Eksekusi Program
 
 git clone [https://github.com/RoyalRamliwisjtra/AI-TE-1303.git](https://github.com/RoyalRamliwisjtra/AI-TE-1303.git)
 cd AI-TE-1303
@@ -67,7 +63,7 @@ python search_algorithm/astar.py
 python search_algorithm/greedy_best_first.py
 python expert_system/expert_system.py
 
-## 10.AI-TE-1303
+## 9.AI-TE-1303
 ```bash
 ├── expert_system/        # Modul aturan sistem pakar
 │   └── expert_system.py
