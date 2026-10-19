@@ -1,7 +1,7 @@
-import heapq
-from collections import deque
+from uninformed_search import bfs_search
+from informed_search import greedy_search
 
-# 1. REPRESENTASI GRAF (Peta Lokasi / Titik Pengiriman Barang)
+# REPRESENTASI GRAF (Peta Lokasi / Titik Pengiriman Barang)
 graph = {
     'Gudang Utama': [('Pos 1', 4), ('Pos 2', 2)],
     'Pos 1': [('Pos 3', 5), ('Pos 4', 10)],
@@ -12,7 +12,7 @@ graph = {
     'Tujuan Akhir': []
 }
 
-# Nilai Heuristic (Perkiraan jarak garis lurus dari tiap titik ke 'Tujuan Akhir')
+# Nilai Heuristic (Perkiraan jarak garis lurus ke 'Tujuan Akhir')
 heuristic = {
     'Gudang Utama': 8,
     'Pos 1': 6,
@@ -23,47 +23,7 @@ heuristic = {
     'Tujuan Akhir': 0
 }
 
-# 2. UNINFORMED SEARCH: Breadth-First Search (BFS)
-def bfs_search(start, goal):
-    queue = deque([[start]])
-    visited = set()
-    
-    while queue:
-        path = queue.popleft()
-        node = path[-1]
-        
-        if node == goal:
-            return path
-            
-        if node not in visited:
-            visited.add(node)
-            for neighbor, weight in graph.get(node, []):
-                new_path = list(path)
-                new_path.append(neighbor)
-                queue.append(new_path)
-    return None
-
-# 3. INFORMED SEARCH: Greedy Best-First Search
-def greedy_search(start, goal):
-    pq = [(heuristic[start], start, [start])]
-    visited = set()
-    
-    while pq:
-        h, node, path = heapq.heappop(pq)
-        
-        if node == goal:
-            return path
-            
-        if node not in visited:
-            visited.add(node)
-            for neighbor, weight in graph.get(node, []):
-                if neighbor not in visited:
-                    new_path = list(path)
-                    new_path.append(neighbor)
-                    heapq.heappush(pq, (heuristic[neighbor], neighbor, new_path))
-    return None
-
-# 4. PROGRAM UTAMA
+# PROGRAM UTAMA
 if __name__ == "__main__":
     start_point = 'Gudang Utama'
     target_point = 'Tujuan Akhir'
@@ -75,12 +35,12 @@ if __name__ == "__main__":
     print(f"Titik Tujuan: {target_point}\n")
     
     # Eksekusi Uninformed Search
-    rute_bfs = bfs_search(start_point, target_point)
+    rute_bfs = bfs_search(graph, start_point, target_point)
     print("[1] Uninformed Search (BFS)")
     print(f"    Rute ditemukan: {' -> '.join(rute_bfs) if rute_bfs else 'Tidak ditemukan'}\n")
     
     # Eksekusi Informed Search
-    rute_greedy = greedy_search(start_point, target_point)
+    rute_greedy = greedy_search(graph, heuristic, start_point, target_point)
     print("[2] Informed Search (Greedy Best-First Search)")
     print(f"    Rute ditemukan: {' -> '.join(rute_greedy) if rute_greedy else 'Tidak ditemukan'}")
     print("=" * 60)
