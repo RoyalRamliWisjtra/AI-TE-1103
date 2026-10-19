@@ -25,11 +25,13 @@ Sistem Navigasi Rute Pengiriman Barang ini adalah program berbasis konsol yang m
 
 
 ## 4. Alur Kerja Sistem
-1. Pengguna menjalankan program melalui terminal dan memberikan input parameter awal.
-2. Sistem merepresentasikan jaringan peta dalam bentuk struktur data *graph* (node dan bobot edge).
-3. Algoritma penelusuran memproses jalur terbaik menuju target dengan menghindari titik hambatan.
-4. Hasil keluaran pencarian diteruskan ke mesin sistem pakar.
-5. Sistem menerbitkan status operasional (AMAN / WASPADA / BAHAYA) beserta saran tindakan di layar konsol.
+Berdasarkan implementasi kode program, alur kerja sistem pakar ini berjalan melalui tahapan berikut:
+1. **Inisialisasi Basis Aturan (*Rule Base*):** Sistem memuat daftar aturan (`R1` hingga `R8`) yang masing-masing berisi kondisi spesifik dan kesimpulan rekomendasi.
+2. **Pengumpulan Fakta (*Fact Gathering*):** Program meminta pengguna untuk memasukkan data awal melalui terminal, yang mencakup berat barang (`berat`), jarak pengiriman (`jarak`), serta tiga kondisi boolean (perlu suhu dingin, barang mudah pecah, dan pengiriman mendesak).
+3. **Proses Mesin Inferensi (*Forward Chaining*):** 
+   * Sistem mengevaluasi fakta-fakta yang dimasukkan pengguna terhadap kondisi pada setiap aturan secara berurutan.
+   * Jika kondisi suatu aturan bernilai benar (`True`), maka aturan tersebut aktif dan kesimpulannya dicatat.
+4. **Menampilkan Hasil Diagnosis:** Program mencetak daftar rekomendasi akhir ke layar terminal berdasarkan aturan-aturan yang aktif (mencakup jenis kendaraan, penanganan tambahan, dan jenis layanan).
 
 ### Perbandingan Karakteristik Algoritma
 | Algoritma | Kategori | Karakteristik Output | Tingkat Keoptimalan |
