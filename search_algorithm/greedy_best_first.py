@@ -1,7 +1,6 @@
 import heapq
 import math
 
-# Koordinat (x, y) dalam km, dipakai untuk heuristik
 lokasi = {
     "Gudang":   (0, 0),
     "Hub A":    (4, 1),
@@ -11,7 +10,6 @@ lokasi = {
     "Perumahan": (11, 5),
 }
 
-# Jalan dua arah beserta jarak (km)
 jalan = {
     "Gudang":    {"Hub A": 4.5, "Hub B": 6.0},
     "Hub A":     {"Gudang": 4.5, "Pasar": 4.5, "Kampus": 6.5},
@@ -23,17 +21,16 @@ jalan = {
 
 
 def heuristik(a, b):
-    """Jarak garis lurus (Euclidean) antara dua lokasi."""
     (x1, y1), (x2, y2) = lokasi[a], lokasi[b]
     return math.hypot(x2 - x1, y2 - y1)
 
 
-def a_star(awal, tujuan):
-    antrian = [(heuristik(awal, tujuan), 0, awal, [awal])]
+def greedy_best_first(awal, tujuan):
+    antrian = [(heuristik(awal, tujuan), awal, [awal], 0)]
     dikunjungi = set()
 
     while antrian:
-        f, g, node, rute = heapq.heappop(antrian)
+        h, node, rute, g = heapq.heappop(antrian)
         if node == tujuan:
             return rute, g
         if node in dikunjungi:
@@ -42,13 +39,14 @@ def a_star(awal, tujuan):
 
         for tetangga, jarak in jalan[node].items():
             if tetangga not in dikunjungi:
-                g_baru = g + jarak
-                f_baru = g_baru + heuristik(tetangga, tujuan)
-                heapq.heappush(antrian, (f_baru, g_baru, tetangga, rute + [tetangga]))
+                heapq.heappush(
+                    antrian,
+                    (heuristik(tetangga, tujuan), tetangga, rute + [tetangga], g + jarak),
+                )
     return None, float("inf")
 
 
-if _name_ == "_main_":
-    rute, total = a_star("Gudang", "Perumahan")
+if __name__ == "__main__":
+    rute, total = greedy_best_first("Gudang", "Perumahan")
     print("Rute pengiriman :", " -> ".join(rute))
     print(f"Total jarak     : {total} km")
