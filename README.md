@@ -4,7 +4,7 @@ EvacRoute AI / Sistem Navigasi Rute Pengiriman Barang & Sistem Pakar Tugas 1, Ke
 
 Peran | Nama | Branch
 --- | --- | ---
-Manager / Ketua | Royal Ramli Wisjtra | `main`
+Main | Royal Ramli Wisjtra | `main`
 Dev 1 | Dwi Zarfa K | `dev1`
 Dev 2 | Abimanyu Aziz | `dev2`
 
